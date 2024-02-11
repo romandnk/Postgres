@@ -1,0 +1,19 @@
+version: '3.9'
+name: "otus"
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=task_1
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    network_mode: host
+
+volumes:
+  postgres:
+    name: otus-postgres-volume
+    driver: local
